@@ -46,7 +46,7 @@ if __name__ == '__main__':
           
           try:
               print(f'\n\nCorrect:{correct} Flag:{flag}\n{chances} more attempts left')
-              guess = str(input(f'Enter a letter to guess: '))
+              guess = str(input(f'Enter a letter to guess: ')).lower()
           except:
               print('Enter only a letter!')
               continue
@@ -62,20 +62,20 @@ if __name__ == '__main__':
               continue
   
   
-          # If letter is guessed correctly
+          # If letter is guessed correctly !!! Wenn der Buchstabe richtig erraten wird
           if guess in word:
-              k = word.count(guess) #k stores the number of times the guessed letter occurs in the word
+              k = word.count(guess) #k stores the number of times the guessed letter occurs in the word !!!k speichert die Häufigkeit, mit der der erratene Buchstabe im Wort vorkommt
               for _ in range(k):    
-                  letterGuessed += guess # The guess letter is added as many times as it occurs
+                  letterGuessed += guess # The guess letter is added as many times as it occurs  !!!Der Ratebuchstabe wird so oft hinzugefügt, wie er vorkommt
   
           # Print the word
           for char in word:
-              if char in letterGuessed and (Counter(letterGuessed) != Counter(word)): # If user has guessed all the letters
+              if char in letterGuessed and (Counter(letterGuessed) != Counter(word)): # If user has guessed all the letters Wenn der Benutzer alle Buchstaben erraten hat
                   print(char, end = ' ')
                   correct += 1
              
-              elif (Counter(letterGuessed) == Counter(word)): # Once the correct word is guessed fully, 
-                                                                # the game ends, even if chances remain
+              elif (Counter(letterGuessed) == Counter(word)): # Once the correct word is guessed fully, !!! Sobald das richtige Wort vollständig erraten ist,
+                                                                # the game ends, even if chances remain  !!! das Spiel endet, auch wenn die Chancen bleiben
                   print("\nThe word is: ", end=' ')
                   print(word)
                   flag = 1
@@ -129,8 +129,7 @@ You lost! Try again
 ''',f"The word you are looking for is {word}")
           
   except KeyboardInterrupt:
-      print()
-      print('Bye! Try again.')
+      print('\nBye! Try again.')
       exit()
     
 
