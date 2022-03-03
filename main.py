@@ -42,11 +42,10 @@ if __name__ == '__main__':
   flag = 0
   try:
       while (chances != 0) and flag == 0: #flag is updated when the word is correctly guessed 
-          print()
           chances -= 1
-  
+          
           try:
-              print(f'\nCorrect:{correct} Flag:{flag}\n{chances} more attempts left')
+              print(f'\n\nCorrect:{correct} Flag:{flag}\n{chances} more attempts left')
               guess = str(input(f'Enter a letter to guess: '))
           except:
               print('Enter only a letter!')
@@ -71,29 +70,64 @@ if __name__ == '__main__':
   
           # Print the word
           for char in word:
-              if char in letterGuessed and (Counter(letterGuessed) != Counter(word)):
+              if char in letterGuessed and (Counter(letterGuessed) != Counter(word)): # If user has guessed all the letters
                   print(char, end = ' ')
                   correct += 1
-              # If user has guessed all the letters
+             
               elif (Counter(letterGuessed) == Counter(word)): # Once the correct word is guessed fully, 
                                                                 # the game ends, even if chances remain
-                  print("The word is: ", end=' ')
+                  print("\nThe word is: ", end=' ')
                   print(word)
                   flag = 1
-                  print('Congratulations, You won!')
+                  print('''
+__     __                                                 
+\ \   / /                                                 
+ \ \_/ /__  ___   _   _  ___  _   _  __      _____  _ __  
+  \   / _ \/ __| | | | |/ _ \| | | | \ \ /\ / / _ \| '_ \ 
+   | |  __/\__ \ | |_| | (_) | |_| |  \ V  V / (_) | | | |
+   |_|\___||___/  \__, |\___/ \__,_|   \_/\_/ \___/|_| |_|
+                   __/ |                                  
+                  |___/    
+
+Congratulations!''')
                   break # To break out of the for loop
                   break # To break out of the while loop
               else:
                   print('_', end = ' ')
   
               
-  
-      # If user has used all of his chances
-      if chances <= 0 and (Counter(letterGuessed) != Counter(word)):
+      if chances <= 0 and (Counter(letterGuessed) != Counter(word)): # If user has used all of his chances
           print()
-          print('You lost! Try again..')
-          print('The word was {}'.format(word))
-  
+          print('''
+ ___________.._______
+| .__________))______|
+| | / /      ||
+| |/ /       ||
+| | /        ||.-''.
+| |/         |/  _  \
+| |          ||  `/,|
+| |          (\\`_.'
+| |         .-`--'.
+| |        /Y . . Y\
+| |       // |   | \\
+| |      //  | . |  \\
+| |     ')   |   |   (`
+| |          ||'||
+| |          || ||
+| |          || ||
+| |          || ||
+| |         / | | \
+""""""""""|_`-' `-' |"""|
+|"|"""""""\ \       '"|"|
+| |        \ \        | |
+: :         \ \       : :
+. .          `'       . .
+                
+You lost! Try again
+
+
+''',f"The word you are looking for is {word}")
+          
   except KeyboardInterrupt:
       print()
       print('Bye! Try again.')
