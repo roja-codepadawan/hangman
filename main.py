@@ -29,9 +29,11 @@ if __name__ == '__main__':
   else:
     print("Okay, let's start") #...with the first letter
 
-  for i in word: # For printing the empty spaces for letters of the word
-    print(f'the word you are looking for has {len(word)} letters')  #!!!!  print('_', end = ' ')
+  print(f"\nThe word we were looking for has {len(word)} letters ", '_ ' * len(word)) #display the empty spaces for letters of the word
+  #for i in word: 
+    #print('_', end = ' ')
   #print() maybe for a paragraph?
+  
   
   playing = True# list for storing the letters guessed by the player
   letterGuessed = ''                
