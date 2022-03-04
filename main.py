@@ -1,6 +1,14 @@
 import random
 from collections import Counter
 
+'''
+wordlist = x = {"name" : "John", "age" : 36}	dict !!!  dict key value is the generic term for the hint e.g. Car contains then brands, car is the indication, ist der Oberbegriff für den Hinweis zb. Auto enthalt dann marken, Auto ist der Hinweis
+
+
+1. randomly worth key,
+2. random word from keyword,
+'''
+
 wordlist = ['one', 'two', 'tree']
 
 word = random.choice(wordlist) #choose a secret random word
