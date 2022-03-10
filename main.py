@@ -7,7 +7,17 @@ wordlist = x = {"name" : "John", "age" : 36}	dict !!!  dict key value is the gen
 
 1. randomly worth key,
 2. random word from keyword,
-'''
+
+
+other possibility
+
+DB with keyword's 
+
+for the counter problem
+
+if len(word) != len(letterGuessed):
+correctly_advised = len(word) - len(guess)
+print(correctly_advised)'''
 
 wordlist = ['one', 'two', 'tree']
 
@@ -26,7 +36,6 @@ __          __  _                            _          _               _       
                                                                  | |             __/ |                      __/ |                      
                                                                  |_|            |___/                      |___/        
 ''')
-
 
 
 if __name__ == '__main__':
@@ -75,7 +84,10 @@ if __name__ == '__main__':
               k = word.count(guess) #k stores the number of times the guessed letter occurs in the word !!!k speichert die Häufigkeit, mit der der erratene Buchstabe im Wort vorkommt
               for _ in range(k):    
                   letterGuessed += guess # The guess letter is added as many times as it occurs  !!!Der Ratebuchstabe wird so oft hinzugefügt, wie er vorkommt
-  
+
+          if len(word) !=  len(guess): # this is how it works ;)
+            print(len(word) - len(guess))
+                
           # Print the word
           for char in word:
               if char in letterGuessed and (Counter(letterGuessed) != Counter(word)): # If user has guessed all the letters Wenn der Benutzer alle Buchstaben erraten hat
@@ -140,8 +152,6 @@ You lost! Try again
       print('\nBye! Try again.')
       exit()
     
-
-
 
 
 
