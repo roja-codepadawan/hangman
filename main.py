@@ -1,5 +1,6 @@
 import random
 from collections import Counter
+from replit import db
 
 '''
 wordlist = x = {"name" : "John", "age" : 36}	dict !!!  dict key value is the generic term for the hint e.g. Car contains then brands, car is the indication, ist der Oberbegriff für den Hinweis zb. Auto enthalt dann marken, Auto ist der Hinweis
@@ -19,11 +20,34 @@ if len(word) != len(letterGuessed):
 correctly_advised = len(word) - len(guess)
 print(correctly_advised)'''
 
+db["car"] = "Audi", "BMW", "Mercedes",
+db["animal"] = "Dog", "Cat",
+dbkey = db.keys
+
+# dbkey = random.choice(dbkey)
+print(dbkey())
+dbkeylen = len(dbkey())
+dbkeylen = random.randint(0, dbkeylen - 1)
+print(dbkeylen)
+
+key = list(db.keys())[dbkeylen]
+print(key)
+
+
+value = db.get(key)
+print(value)
+
+value = random.choice(value)
+print(value)
+
+
+
+
 wordlist = ['one', 'two', 'tree']
 
 word = random.choice(wordlist) #choose a secret random word
 
-print(f'test display {word}') #test display
+print(f'test display {word} {value}') #test display
 
 
 print('''
@@ -64,6 +88,7 @@ if __name__ == '__main__':
           try:
               print(f'\n\nCorrect:{correct} Flag:{flag}\n{chances} more attempts left')
               guess = str(input(f'Enter a letter to guess: ')).lower()
+              
           except:
               print('Enter only a letter!')
               continue
@@ -81,9 +106,9 @@ if __name__ == '__main__':
   
           # If letter is guessed correctly !!! Wenn der Buchstabe richtig erraten wird
           if guess in word:
-              k = word.count(guess) #k stores the number of times the guessed letter occurs in the word !!!k speichert die Häufigkeit, mit der der erratene Buchstabe im Wort vorkommt
-              for _ in range(k):    
-                  letterGuessed += guess # The guess letter is added as many times as it occurs  !!!Der Ratebuchstabe wird so oft hinzugefügt, wie er vorkommt
+            k = word.count(guess) #k stores the number of times the guessed letter occurs in the word !!!k speichert die Häufigkeit, mit der der erratene Buchstabe im Wort vorkommt
+            for _ in range(k):    
+                letterGuessed += guess # The guess letter is added as many times as it occurs  !!!Der Ratebuchstabe wird so oft hinzugefügt, wie er vorkommt
 
           if len(word) !=  len(guess): # this is how it works ;)
             print(len(word) - len(guess))
